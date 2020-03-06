@@ -15,7 +15,7 @@
 
 #### NPM
 
-1. Replace text `yarn` with `npm run` in package.json scripts.
+1. Replace text `yarn` with `npm` in package.json scripts.
 2. Install serverless globally: `npm install -g serverless`
 3. Run: `npm install`
 4. Run: `npm run build` to deploy lambda micro services.

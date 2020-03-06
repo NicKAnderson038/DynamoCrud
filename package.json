@@ -7,8 +7,8 @@
   "scripts": {
     "gulp-test": "clear; GULP=true gulp && gulp",
     "gulp-cleanup": "gulp",
-    "build": "GULP=true gulp && yarn deploy-sls; gulp",
-    "remove-apis": "GULP=true gulp && yarn rm-deploy-sls; gulp",
+    "build": "GULP=true gulp && yarn run deploy-sls; gulp",
+    "remove-apis": "GULP=true gulp && yarn run rm-deploy-sls; gulp",
     "deploy-sls": "sls deploy --stage dev --region us-east-1 --verbose --aws-profile default",
     "rm-deploy-sls": "sls remove --stage dev --region us-east-1 --verbose --aws-profile default",
     "test": "echo \"Error: no test specified\" && exit 1"

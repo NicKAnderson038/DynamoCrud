@@ -1,0 +1,8 @@
+post:
+  handler: services/userInfo/post.post
+  events:
+    - http:
+        path: post-user
+        method: POST
+        cors: true
+        integration: lambda-proxy

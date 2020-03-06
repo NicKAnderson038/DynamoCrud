@@ -1,0 +1,1 @@
+USER_INFO_DB: ${self:service}-list-of-pts-${opt:stage, self:provider.stage}

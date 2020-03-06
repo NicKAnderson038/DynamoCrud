@@ -1,0 +1,8 @@
+- Effect: Allow
+  Action:
+    - s3:GetObject
+    - s3:ListBucket
+    - ses:SendEmail
+  Resource: "*"
+  # Resource:
+  #   - Fn::GetAtt: [ChatTable, Arn]

@@ -1,0 +1,36 @@
+{
+  "name": "dynamo-crud",
+  "version": "1.0.0",
+  "description": "Serverless dynamoDB CRUD application",
+  "main": "index.js",
+  "author": "Nick Anderson",
+  "scripts": {
+    "gulp-test": "clear; GULP=true gulp && gulp",
+    "gulp-cleanup": "gulp",
+    "build": "GULP=true gulp && yarn deploy-sls; gulp",
+    "remove-apis": "GULP=true gulp && yarn rm-deploy-sls; gulp",
+    "deploy-sls": "sls deploy --stage dev --region us-east-1 --verbose --aws-profile default",
+    "rm-deploy-sls": "sls remove --stage dev --region us-east-1 --verbose --aws-profile default",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@hapi/joi": "^17.1.0",
+    "dynamodb-update-expression": "^0.1.21",
+    "lodash": "^4.17.15",
+    "node-fetch": "^2.6.0",
+    "uuidv4": "^6.0.6"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.634.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-emojify": "^0.0.2",
+    "serverless-dotenv-plugin": "^2.3.2",
+    "serverless-plugin-common-excludes": "^3.0.0",
+    "serverless-plugin-include-dependencies": "^4.1.0"
+  }
+}

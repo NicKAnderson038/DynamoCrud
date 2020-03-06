@@ -1,0 +1,7 @@
+region: ${opt:region, self:provider.region}
+myStage: ${opt:stage, self:provider.stage}
+config: ${file(./serverless-yml/serviceConfig.yml)}
+myProfile:
+    dev: default
+    staging: default
+    prod: default

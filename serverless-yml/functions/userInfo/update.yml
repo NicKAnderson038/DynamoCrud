@@ -1,0 +1,8 @@
+update:
+  handler: services/userInfo/update.update
+  events:
+    - http:
+        path: update-user
+        method: PUT
+        cors: true
+        integration: lambda-proxy

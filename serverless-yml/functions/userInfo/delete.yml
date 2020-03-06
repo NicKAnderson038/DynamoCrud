@@ -1,0 +1,8 @@
+delete:
+  handler: services/userInfo/delete.delete
+  events:
+    - http:
+        path: delete-user
+        method: DELETE
+        cors: true
+        integration: lambda-proxy

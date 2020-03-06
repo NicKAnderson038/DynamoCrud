@@ -1,0 +1,8 @@
+get:
+  handler: services/userInfo/get.get
+  events:
+    - http:
+        path: get-user
+        method: GET
+        cors: true
+        integration: lambda-proxy

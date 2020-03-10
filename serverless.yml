@@ -16,3 +16,8 @@ functions: ${file(./temp/functions.yml)}
 
 resources:
   Resources: ${file(./temp/resources.yml)}
+  # Print out the name of the bucket that is created. Buckets are global, name is randomly generated.
+  Outputs:
+    AttachmentsBucketName:
+      Value:
+        Ref: AttachmentsBucket

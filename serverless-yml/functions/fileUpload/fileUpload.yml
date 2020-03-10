@@ -1,0 +1,9 @@
+fileUpload:
+  handler: services/fileUpload/fileUpload.fileUpload
+  events:
+    # - s3:${self:provider.environment.S3_BUCKET_NAME}
+    - http:
+        path: file-upload
+        method: POST
+        cors: true
+        integration: lambda-proxy

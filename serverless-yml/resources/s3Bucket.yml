@@ -1,0 +1,22 @@
+# Create s3 bucket
+AttachmentsBucket:
+  Type: AWS::S3::Bucket
+  Properties:
+    # set bucket name. If not, will auto generate a name
+    # BucketName: ${self:provider.environment.S3_BUCKET_NAME}
+    AccessControl: Private
+    # AccessControl: PublicRead
+    # Set the CORS policy
+    CorsConfiguration:
+      CorsRules:
+        - AllowedOrigins:
+            - '*'
+          AllowedHeaders:
+            - '*'
+          AllowedMethods:
+            - GET
+            - PUT
+            - POST
+            - DELETE
+            - HEAD
+          MaxAge: 3000

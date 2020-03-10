@@ -1,0 +1,9 @@
+# Test with client/index.html
+presignedPost:
+  handler: services/fileUpload/presignedPost.presignedPost
+  events:
+    - http:
+        path: presigned-post
+        method: POST
+        cors: true
+        integration: lambda-proxy

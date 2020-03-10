@@ -1,1 +1,2 @@
 USER_INFO_DB: ${self:service}-list-of-pts-${opt:stage, self:provider.stage}
+S3_BUCKET_NAME: dynamo-crud-dev-attachmentsbucket-1r8pty2d61pp3

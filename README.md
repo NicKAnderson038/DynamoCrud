@@ -39,7 +39,19 @@
 
 ### Api Endpoints
 
-Building process will generate api-gateway endpoints. Using postman, test with the `hello-test` microservice endpoint to confirm connection.
+Building process will generate api-gateway endpoints in the console. Using postman, test with the `https://**/hello-test` microservice endpoint to confirm connection.
+
+<br>
+
+#
+
+### Testing uploading files to S3 (pick between 2 or 3)
+
+1. After running the build. Copy/paste the api-gateway url `https://**/presigned-post` into the client/index.html file.
+
+2. Modify s3Bucket.yml is set to auto generate a bucket Name. Once generated assign it to `S3_BUCKET_NAME` in the environment.yml file.
+
+3. Modify s3Bucket.yml to pre-define a bucket name. Then assign it to `S3_BUCKET_NAME` in the environment.yml file.
 
 <br>
 

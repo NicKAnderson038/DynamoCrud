@@ -1,5 +1,5 @@
 fileUpload:
-  handler: services/fileUpload/fileUpload.fileUpload
+  handler: services/bucketAssets/fileUpload.fileUpload
   events:
     # - s3:${self:provider.environment.S3_BUCKET_NAME}
     - http:

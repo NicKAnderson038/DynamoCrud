@@ -1,6 +1,6 @@
 # Test with client/index.html
 presignedPost:
-  handler: services/fileUpload/presignedPost.presignedPost
+  handler: services/bucketAssets/presignedPost.presignedPost
   events:
     - http:
         path: presigned-post

@@ -8,6 +8,9 @@
     - s3:GetBucketNotification
     - s3:PutBucketNotification
     - ses:SendEmail
-  Resource: 'arn:aws:s3:::${self:provider.environment.S3_BUCKET_NAME}/*'
+  # Resource: 'arn:aws:s3:::${self:provider.environment.S3_BUCKET_NAME}/*'
+  Resource:
+    - "arn:aws:s3:::${self:provider.environment.S3_BUCKET_NAME}"
+    - "arn:aws:s3:::${self:provider.environment.S3_BUCKET_NAME}/*"
   # Resource:
   #   - Fn::GetAtt: [ChatTable, Arn]

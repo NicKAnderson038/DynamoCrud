@@ -1,9 +1,7 @@
 'use strict'
 
-module.exports.hello = async event => {
-  console.log('+++++++++++++++++++++++++++++++++++++++++++++++++++')
+module.exports.testEndpoint = async event => {
   console.log(process.env.USER_INFO_DB)
-  console.log('===================================================')
   return {
     statusCode: 200,
     body: JSON.stringify(

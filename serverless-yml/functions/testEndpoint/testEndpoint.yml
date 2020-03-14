@@ -1,8 +1,8 @@
-hello:
-  handler: services/hello/hello.hello
+testEndpoint:
+  handler: services/testEndpoint/testEndpoint.testEndpoint
   events:
     - http:
-        path: hello-test
+        path: test-endpoint
         method: GET
         cors: true
         integration: lambda-proxy

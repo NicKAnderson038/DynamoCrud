@@ -39,7 +39,7 @@
 
 ### Api Endpoints
 
-Building process will generate api-gateway endpoints in the console. Using postman, test with the `https://**/hello-test` microservice endpoint to confirm connection.
+Building process will generate api-gateway endpoints in the console. Using postman, test with the `https://**/test-endpoint` microservice endpoint to confirm connection.
 
 <br>
 

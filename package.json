@@ -17,7 +17,7 @@
 	"dependencies": {
 		"@hapi/joi": "^17.1.0",
 		"dynamodb-update-expression": "^0.1.21",
-		"lodash": "^4.17.15",
+		"lodash": "^4.5.0",
 		"node-fetch": "^2.6.0",
 		"uuidv4": "^6.0.6"
 	},

@@ -4,6 +4,7 @@ const Joi = require('@hapi/joi')
 const { uuid } = require('uuidv4')
 const isUndefined = require('lodash/fp/isUndefined')
 const { db } = require('../../helpers/dynamodb-client')
+const { putTable } = require('../../helpers/schemaTable')
 const { error400, error422, success200 } = require('../../helpers/response')
 
 const schema = Joi.object({
@@ -16,23 +17,15 @@ const schema = Joi.object({
 module.exports.post = async event => {
 	const body = JSON.parse(event.body)
 	const validation = schema.validate(body)
+
 	if (!isUndefined(validation.error)) {
 		return error422(validation.error.details)
 	}
-	const timestamp = new Date().getTime()
 
-	const putUser = {
-		TableName: process.env.USER_INFO_DB,
-		Item: {
-			...body,
-			id: uuid(),
-			createdAt: timestamp,
-			updatedAt: timestamp,
-		},
-	}
+	const params = putTable(process.env.USER_INFO_DB, body)
 
 	try {
-		await db('put', putUser)
+		await db('put', params)
 		return success200()
 	} catch (error) {
 		return error400(`Post user info failed: ${error.stack}`)

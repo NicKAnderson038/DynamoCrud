@@ -3,6 +3,7 @@
 const Joi = require('@hapi/joi')
 const { db } = require('../../helpers/dynamodb-client')
 const isUndefined = require('lodash/fp/isUndefined')
+const { getTable } = require('../../helpers/schemaTable')
 const { error400, error422, success200 } = require('../../helpers/response')
 
 const schema = Joi.object({
@@ -15,16 +16,10 @@ module.exports.get = async event => {
 		return error422(validation.error.details)
 	}
 
-	const getUser = {
-		TableName: process.env.USER_INFO_DB,
-		Key: {
-			id: event.pathParameters.id,
-			// id: event.queryStringParameters.id,
-		},
-	}
+	const params = getTable(process.env.USER_INFO_DB, body)
 
 	try {
-		const result = await db('get', getUser)
+		const result = await db('get', params)
 		return success200(result.Item)
 	} catch (error) {
 		return error400(`Get user failed: ${error.stack}`)

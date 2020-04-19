@@ -4,6 +4,7 @@ const Joi = require('@hapi/joi')
 const isUndefined = require('lodash/fp/isUndefined')
 const { db } = require('../../helpers/dynamodb-client')
 const { isObjEmpty } = require('../../helpers/request-validation')
+const { deleteTable } = require('../../helpers/schemaTable')
 const { error400, error422, success200 } = require('../../helpers/response')
 
 const schema = Joi.object({
@@ -13,19 +14,15 @@ const schema = Joi.object({
 module.exports.delete = async event => {
 	const body = JSON.parse(event.body)
 	const validation = schema.validate(body)
+
 	if (!isUndefined(validation.error)) {
 		return error422(validation.error.details)
 	}
 
-	const deleteUser = {
-		TableName: process.env.USER_INFO_DB,
-		Key: {
-			...body,
-		},
-	}
+	const params = deleteTable(process.env.USER_INFO_DB, body)
 
 	try {
-		const result = await db('delete', deleteUser)
+		const result = await db('delete', params)
 		if (isObjEmpty(result)) {
 			return success200('User Deleted Successfully')
 		}

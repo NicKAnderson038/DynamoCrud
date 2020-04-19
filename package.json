@@ -8,6 +8,7 @@
 	"scripts": {
 		"gulp-test": "clear; GULP=true gulp && gulp",
 		"gulp-cleanup": "gulp",
+		"format": "prettier --write services/**",
 		"build": "GULP=true gulp && yarn run deploy-sls; gulp",
 		"remove-apis": "GULP=true gulp && yarn run rm-deploy-sls; gulp",
 		"deploy-sls": "sls deploy --stage dev --region us-east-1 --verbose --aws-profile default",

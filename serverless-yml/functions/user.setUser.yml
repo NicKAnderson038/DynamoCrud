@@ -1,0 +1,18 @@
+setUser:
+  handler: services/user/setUser.setUser
+  events:
+    - http:
+        path: setUser
+        method: POST
+        cors: true
+        integration: lambda-proxy
+    - http:
+        path: setUser
+        method: PUT
+        cors: true
+        integration: lambda-proxy
+    - http:
+        path: setUser
+        method: DELETE
+        cors: true
+        integration: lambda-proxy

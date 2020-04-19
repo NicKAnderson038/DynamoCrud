@@ -2,21 +2,21 @@ const fs = require('fs')
 const path = require('path')
 const YAML = require('yamljs')
 
-const readYmlFilesFromPath = (ymlFilePath) => {
-  const files = fs.readdirSync(ymlFilePath)
+const readYmlFilesFromPath = ymlFilePath => {
+	const files = fs.readdirSync(ymlFilePath)
 
-  const merged = files
-    .map((file) => fs.readFileSync(path.join(ymlFilePath, file), 'utf8'))
-    .map((raw) => YAML.parse(raw))
-    .reduce((result, handler) => ({ ...result, ...handler }))
-  // .reduce((result, handler) => Object.assign(result, handler), {});
+	const merged = files
+		.map(file => fs.readFileSync(path.join(ymlFilePath, file), 'utf8'))
+		.map(raw => YAML.parse(raw))
+		.reduce((result, handler) => ({ ...result, ...handler }))
+	// .reduce((result, handler) => Object.assign(result, handler), {});
 
-  return merged
+	return merged
 }
 
 module.exports = {
-  resources: () => readYmlFilesFromPath('./serverless-yml/resources'),
-  iamRoleStatements: () =>
-    readYmlFilesFromPath('./serverless-yml/iamRoleStatements'),
-  functions: () => readYmlFilesFromPath('./serverless-yml/functions'),
+	resources: () => readYmlFilesFromPath('./serverless-yml/resources'),
+	iamRoleStatements: () =>
+		readYmlFilesFromPath('./serverless-yml/iamRoleStatements'),
+	functions: () => readYmlFilesFromPath('./serverless-yml/functions'),
 }

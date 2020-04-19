@@ -1,21 +1,16 @@
 'use strict'
 
-const AWS = require('aws-sdk')
-const dynamoDb = new AWS.DynamoDB.DocumentClient()
 const Joi = require('@hapi/joi')
 const { uuid } = require('uuidv4')
 const isUndefined = require('lodash/fp/isUndefined')
+const { db } = require('../../helpers/dynamodb-client')
 const { error400, error422, success200 } = require('../../helpers/response')
 
 const schema = Joi.object({
   firstName: Joi.string().required(),
   lastName: Joi.string().required(),
   userInfo: Joi.string().required(),
-  age: Joi.number()
-    .integer()
-    .min(1)
-    .max(150)
-    .required(),
+  age: Joi.number().integer().min(1).max(150).required(),
 })
 
 module.exports.post = async event => {
@@ -41,8 +36,8 @@ module.exports.post = async event => {
   // }
 
   try {
-    await dynamoDb.put(putUser).promise()
-    // const result = await dynamoDb.scan(scan).promise()
+    await db('put', putUser)
+    // const result = await db('scan')
     return success200()
   } catch (error) {
     return error400(`Post user info failed: ${error.stack}`)

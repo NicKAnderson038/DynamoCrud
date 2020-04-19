@@ -6,4 +6,4 @@ jspm_packages
 .serverless
 
 #vscode: auto save settings
-.vscode
+# .vscode

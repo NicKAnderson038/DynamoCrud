@@ -8,14 +8,19 @@ provider:
   name: aws
   runtime: nodejs12.x
   environment: ${file(./serverless-yml/environment.yml)}
-  iamRoleStatements: ${file(./temp/iamRoleStatements.yml)}
+  iamRoleStatements:
+    - ${file(./serverless-yml/iamRoleStatements/dynamodbUserInfo.yml)}
+    - ${file(./serverless-yml/iamRoleStatements/sesAndS3.yml)}
 
 custom: ${file(./serverless-yml/custom.yml)}
 
-functions: ${file(./temp/functions.yml)}
+package:
+  individually: true
+
+functions: ${file(./serverless-dynamic.js):functions}
 
 resources:
-  Resources: ${file(./temp/resources.yml)}
+  Resources: ${file(./serverless-dynamic.js):resources}
   # Print out the name of the bucket that is created. Buckets are global, name is randomly generated.
   Outputs:
     AttachmentsBucketName:

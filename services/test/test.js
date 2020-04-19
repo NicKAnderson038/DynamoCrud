@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports.testEndpoint = async event => {
+module.exports.test = async event => {
   console.log(process.env.USER_INFO_DB)
   return {
     statusCode: 200,
@@ -10,7 +10,7 @@ module.exports.testEndpoint = async event => {
         input: event,
       },
       null,
-      2
+      2,
     ),
   }
 }

@@ -1,17 +1,13 @@
 'use strict'
 
-const AWS = require('aws-sdk')
-const dynamoDb = new AWS.DynamoDB.DocumentClient()
 const Joi = require('@hapi/joi')
 const isUndefined = require('lodash/fp/isUndefined')
+const { db } = require('../../helpers/dynamodb-client')
 const { isObjEmpty } = require('../../helpers/request-validation')
 const { error400, error422, success200 } = require('../../helpers/response')
 
 const schema = Joi.object({
-  id: Joi.string()
-    .min(36)
-    .max(36)
-    .required(),
+  id: Joi.string().min(36).max(36).required(),
 })
 
 module.exports.delete = async event => {
@@ -29,7 +25,7 @@ module.exports.delete = async event => {
   }
 
   try {
-    const result = await dynamoDb.delete(deleteUser).promise()
+    const result = await db('delete', deleteUser)
     if (isObjEmpty(result)) {
       return success200('User Deleted Successfully')
     }

@@ -1,8 +1,8 @@
 testEndpoint:
-  handler: services/testEndpoint/testEndpoint.testEndpoint
+  handler: services/test/test.test
   events:
     - http:
-        path: test-endpoint
+        path: test
         method: GET
         cors: true
         integration: lambda-proxy

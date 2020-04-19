@@ -1,4 +1,5 @@
 const { uuid } = require('uuidv4')
+const updateExpression = require('dynamodb-update-expression')
 
 const putTable = (TableName, body) => {
 	const timestamp = new Date().getTime()
@@ -10,6 +11,18 @@ const putTable = (TableName, body) => {
 			createdAt: timestamp,
 			updatedAt: timestamp,
 		},
+	}
+}
+
+const updateTable = (TableName, body, original) => {
+	body.updatedAt = new Date().getTime()
+	return {
+		TableName,
+		Key: {
+			id: body.id,
+		},
+		...updateExpression.getUpdateExpression(original, body),
+		// ReturnValues: 'UPDATED_NEW',
 	}
 }
 
@@ -33,6 +46,7 @@ const deleteTable = (TableName, body) => {
 
 module.exports = {
 	putTable,
+	updateTable,
 	getTable,
 	deleteTable,
 }

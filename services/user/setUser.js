@@ -11,7 +11,7 @@ const Joi = require('@hapi/joi')
 const isUndefined = require('lodash/fp/isUndefined')
 const { db } = require('../../helpers/dynamodb-client')
 const { validate, isObjEmpty } = require('../../helpers/request-validation')
-const updateHelper = require('../../helpers/updateHelper')
+const { updateTable } = require('../../helpers/schemaTable')
 const { error400, error422, success200 } = require('../../helpers/response')
 
 const postSchema = Joi.object({
@@ -51,10 +51,10 @@ module.exports.setUser = async event => {
 	try {
 		const result = await db(schema.method, schema.params)
 		if (event.httpMethod === 'PUT') {
-			const expressionResult = updateHelper(
+			const expressionResult = updateTable(
+				process.env.USER_INFO_DB,
 				body,
-				result.Item,
-				process.env.USER_INFO_DB
+				result.Item
 			)
 			const updateResult = await db('update', expressionResult)
 			return success200(updateResult.Attributes)

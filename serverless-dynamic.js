@@ -7,7 +7,7 @@ const readFile = (files, ymlFilePath) =>
 		.reduce((acc, dir) => {
 			if (!dir.includes('.yml')) {
 				const innerFile = fs.readdirSync(`${ymlFilePath}/${dir}`)
-				const formatted = innerFile.map(p => `${dir}/${p}`)
+				const formatted = innerFile.map(f => `${dir}/${f}`)
 				acc.push(formatted)
 				return acc
 			}

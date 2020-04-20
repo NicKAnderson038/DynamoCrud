@@ -17,22 +17,18 @@ const readFile = (files, ymlFilePath) =>
 		.flat()
 
 const readYmlFilesFromPath = (ymlFilePath, ymlName) => {
-	// const files = fs.readdirSync(ymlFilePath)
 	const files = readFile(fs.readdirSync(ymlFilePath), ymlFilePath)
 	console.log(`${ymlName}.yml 📁:`, files)
 	const merged = files
 		.map(file => fs.readFileSync(path.join(ymlFilePath, file), 'utf8'))
 		.map(raw => YAML.parse(raw))
 		.reduce((result, handler) => ({ ...result, ...handler }))
-	// .reduce((result, handler) => Object.assign(result, handler), {});
 	return merged
 }
 
 module.exports = {
 	resources: () =>
 		readYmlFilesFromPath('./serverless-yml/resources', 'resources'),
-	// iamRoleStatements: () =>
-	// 	readYmlFilesFromPath('./serverless-yml/iamRoleStatements'),
 	functions: () =>
 		readYmlFilesFromPath('./serverless-yml/functions', 'functions'),
 }

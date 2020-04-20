@@ -1,8 +1,9 @@
-get:
-  handler: services/userInfo/get.get
+### List all users & data
+list:
+  handler: services/user/list.list
   events:
     - http:
-        path: get-user/{id}
+        path: get-list
         method: GET
         cors: true
         integration: lambda-proxy

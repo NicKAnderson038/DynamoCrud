@@ -1,5 +1,5 @@
 post:
-  handler: services/userInfo/post.post
+  handler: services/user/post.post
   events:
     - http:
         path: post-user

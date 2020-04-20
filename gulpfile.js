@@ -1,5 +1,5 @@
 /**
- * Servless Task Runner
+ * Serverless Task Runner
  * Consoles out put fun emojis :)
  */
 

@@ -16,7 +16,7 @@ module.exports.get = async event => {
 		return error422(validation.error.details)
 	}
 
-	const params = getTable(process.env.USER_INFO_DB, body)
+	const params = getTable(process.env.USER_INFO_DB, event.pathParameters)
 
 	try {
 		const result = await db('get', params)

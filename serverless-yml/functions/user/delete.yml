@@ -1,5 +1,5 @@
 delete:
-  handler: services/userInfo/delete.delete
+  handler: services/user/delete.delete
   events:
     - http:
         path: delete-user

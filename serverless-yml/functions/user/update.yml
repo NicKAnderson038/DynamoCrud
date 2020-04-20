@@ -1,5 +1,5 @@
 update:
-  handler: services/userInfo/update.update
+  handler: services/user/update.update
   events:
     - http:
         path: update-user

@@ -1,5 +1,5 @@
 setUser:
-  handler: services/user/setUser.setUser
+  handler: services/setUser/setUser.setUser
   events:
     - http:
         path: setUser

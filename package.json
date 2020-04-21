@@ -2,18 +2,20 @@
 	"name": "dynamo-crud",
 	"version": "1.0.0",
 	"description": "Serverless dynamoDB CRUD application",
-	"main": "index.js",
+	"main": "serverless.yml",
 	"author": "Nick Anderson",
 	"license": "MIT",
 	"scripts": {
 		"gulp-test": "clear; GULP=true gulp && gulp",
 		"gulp-cleanup": "gulp",
 		"format": "prettier --write services/**",
-		"build": "GULP=true gulp && yarn run deploy-sls; gulp",
-		"remove-apis": "GULP=true gulp && yarn run rm-deploy-sls; gulp",
+		"build": "GULP=true gulp && yon run deploy-sls; gulp",
+		"remove-apis": "GULP=true gulp && yon run rm-deploy-sls; gulp",
 		"deploy-sls": "sls deploy --stage dev --region us-east-1 --verbose --aws-profile default",
 		"rm-deploy-sls": "sls remove --stage dev --region us-east-1 --verbose --aws-profile default",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"first": "echo \"🚦 START 👉 1st script❗\" && yon run second",
+		"second": "echo \"🏁 END 👉 2nd script❗\""
 	},
 	"dependencies": {
 		"@hapi/joi": "^17.1.1",
@@ -35,7 +37,8 @@
 		"pretty-quick": "^2.0.1",
 		"serverless-plugin-common-excludes": "^3.0.0",
 		"serverless-plugin-include-dependencies": "^4.1.0",
-		"yamljs": "^0.3.0"
+		"yamljs": "^0.3.0",
+		"yarn-or-npm": "^3.0.1"
 	},
 	"husky": {
 		"hooks": {

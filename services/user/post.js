@@ -1,7 +1,6 @@
 'use strict'
 
 const Joi = require('@hapi/joi')
-const { uuid } = require('uuidv4')
 const isUndefined = require('lodash/fp/isUndefined')
 const { db } = require('../../helpers/dynamodb-client')
 const { putTable } = require('../../helpers/schemaTable')

@@ -1,0 +1,8 @@
+writeMultipleUsers:
+  handler: services/user/writeMultipleUsers.writeMultipleUsers
+  events:
+    - http:
+        path: write-multiple-users
+        method: GET
+        cors: true
+        integration: lambda-proxy

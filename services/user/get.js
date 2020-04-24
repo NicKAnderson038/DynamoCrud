@@ -2,7 +2,6 @@
 
 const Joi = require('@hapi/joi')
 const { db } = require('../../helpers/dynamodb-client')
-const isUndefined = require('lodash/fp/isUndefined')
 const { getTable } = require('../../helpers/schemaTable')
 const { error400, error422, success200 } = require('../../helpers/response')
 
@@ -12,7 +11,7 @@ const schema = Joi.object({
 
 module.exports.get = async event => {
 	const validation = schema.validate(event.pathParameters)
-	if (!isUndefined(validation.error)) {
+	if (!!validation.error) {
 		return error422(validation.error.details)
 	}
 

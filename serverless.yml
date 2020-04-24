@@ -1,6 +1,7 @@
 service: ${self:custom.config.service-name}
 
 plugins:
+  - serverless-offline
   - serverless-plugin-common-excludes
   - serverless-plugin-include-dependencies
 

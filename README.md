@@ -57,7 +57,19 @@ Building process will generate api-gateway endpoints in the console. Using postm
 
 #
 
-### Removing apis (built with npm or yarn)
+### Running serverless locally (npm or yarn)
+
+`npm run sls-offline`
+
+##### or
+
+`yarn sls-offline`
+
+<br>
+
+#
+
+### Removing apis (npm or yarn)
 
 `npm run remove`
 

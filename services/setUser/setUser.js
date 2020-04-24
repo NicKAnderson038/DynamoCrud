@@ -8,7 +8,6 @@
  */
 
 const Joi = require('@hapi/joi')
-const isUndefined = require('lodash/fp/isUndefined')
 const { db } = require('../../helpers/dynamodb-client')
 const { validate, isObjEmpty } = require('../../helpers/request-validation')
 const { updateTable } = require('../../helpers/schemaTable')
@@ -44,7 +43,7 @@ module.exports.setUser = async event => {
 		body
 	)
 
-	if (!isUndefined(schema.joi.error)) {
+	if (!!schema.joi.error) {
 		return error422(schema.joi.error.details)
 	}
 

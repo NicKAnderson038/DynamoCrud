@@ -3,7 +3,6 @@
 const AWS = require('aws-sdk')
 const s3 = new AWS.S3()
 const Joi = require('@hapi/joi')
-const isUndefined = require('lodash/fp/isUndefined')
 const { uuid } = require('uuidv4')
 const { error400, error422, success200 } = require('../../helpers/response')
 
@@ -45,7 +44,7 @@ const createPresignedPost = ({ key, contentType }) => {
 module.exports.presignedPost = async event => {
 	const body = JSON.parse(event.body)
 	const validation = schema.validate(body)
-	if (!isUndefined(validation.error)) {
+	if (!!validation.error) {
 		return error422(validation.error.details)
 	}
 	const contentType = body.contentType

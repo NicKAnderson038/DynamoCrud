@@ -1,7 +1,6 @@
 'use strict'
 
 const Joi = require('@hapi/joi')
-const isUndefined = require('lodash/fp/isUndefined')
 const { db } = require('../../helpers/dynamodb-client')
 const { putTable } = require('../../helpers/schemaTable')
 const { error400, error422, success200 } = require('../../helpers/response')
@@ -17,7 +16,7 @@ module.exports.post = async event => {
 	const body = JSON.parse(event.body)
 	const validation = schema.validate(body)
 
-	if (!isUndefined(validation.error)) {
+	if (!!validation.error) {
 		return error422(validation.error.details)
 	}
 

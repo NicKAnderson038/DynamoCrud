@@ -1,7 +1,8 @@
 Script to remove lambdas:
 
-"remove": "sls remove $npm_package_config_dev"
+    "remove": "sls remove $npm_package_config_dev"
 
 Scripts supporting Gulp task running:
-"sls:offline": "GULP=true gulp && sls offline $npm_package_config_dev; gulp",
-"sls:deploy": "GULP=true gulp && sls deploy $npm_package_config_dev; gulp"
+
+    "sls:offline": "GULP=true gulp && sls offline $npm_package_config_dev; gulp",
+    "sls:deploy": "GULP=true gulp && sls deploy $npm_package_config_dev; gulp"

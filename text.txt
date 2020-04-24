@@ -1,0 +1,3 @@
+Script to remove lambdas:
+
+"remove": "sls remove $npm_package_config_dev"

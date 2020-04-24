@@ -7,8 +7,8 @@
 	"license": "MIT",
 	"scripts": {
 		"prettier:format": "echo \"🚦 START 👉 Prettier❗\" && prettier --write services/** && echo \"🏁 END 👉 Prettier❗\"",
-		"sls:offline": "GULP=true gulp && sls offline $npm_package_config_dev; gulp",
-		"sls:deploy": "GULP=true gulp && sls deploy $npm_package_config_dev; gulp"
+		"sls:offline": "sls offline $npm_package_config_dev",
+		"sls:deploy": "sls deploy $npm_package_config_dev"
 	},
 	"config": {
 		"dev": "--stage dev --region us-east-1 --verbose --aws-profile default"

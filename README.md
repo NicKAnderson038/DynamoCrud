@@ -9,7 +9,11 @@
 
 #
 
-### Npm or Yarn Build Steps
+### Options for deployment:
+
+1. Npm build scripts, Yarn build scripts or run bash script
+
+##### \*Commands to run Npm, Yarn or Bash
 
 <ul>
 
@@ -30,6 +34,12 @@
 2. Install serverless globally: `yarn add global serverless`
 3. Run: `yarn`
 4. Run: `yarn sls:deploy` to deploy lambda micro services.
+
+### BASH
+
+```bash
+bash ci-deploy
+```
 
 </ul>
 
@@ -69,15 +79,21 @@ Building process will generate api-gateway endpoints in the console. Using postm
 
 #
 
-### Removing apis (npm or yarn)
+### Removing apis with npm scripts, yarn scripts or bash.
 
-Add `sls:remove` to package.json file. (Located in scripts.txt) then run the scripts command.
+1. Add `sls:remove` to package.json file. (Located in scripts.txt) then run the scripts command.
 
 `npm run sls:remove`
 
 ##### or
 
 `yarn sls:remove`
+
+2. Run bash script.
+
+```bash
+bash ci-decomission
+```
 
 <br>
 <br>

@@ -1,7 +1,7 @@
 'use strict'
 
 const Joi = require('@hapi/joi')
-const { db } = require('../../helpers/dynamodb-client')
+const { db } = require('../../helpers/aws-client')
 const { putTable } = require('../../helpers/schemaTable')
 const { error400, error422, success200 } = require('../../helpers/response')
 

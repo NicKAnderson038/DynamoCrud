@@ -8,7 +8,7 @@
  */
 
 const Joi = require('@hapi/joi')
-const { db } = require('../../helpers/dynamodb-client')
+const { db } = require('../../helpers/aws-client')
 const { validate, isObjEmpty } = require('../../helpers/request-validation')
 const { updateTable } = require('../../helpers/schemaTable')
 const { error400, error422, success200 } = require('../../helpers/response')

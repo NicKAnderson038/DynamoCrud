@@ -1,0 +1,13 @@
+GET http://localhost:3000/dev/test
+
+###
+
+POST http://localhost:3000/dev/file-upload
+
+###
+
+GET http://localhost:3000/dev/get-signed-links
+
+###
+
+GET http://localhost:3000/dev/get-list

@@ -1,7 +1,6 @@
 'use strict'
 
-const AWS = require('aws-sdk')
-const s3 = new AWS.S3()
+const { s3, getSignedUrl } = require('../../helpers/aws-client')
 const { error400, success200 } = require('../../helpers/response')
 
 module.exports.getBucketLinks = async () => {
@@ -10,7 +9,7 @@ module.exports.getBucketLinks = async () => {
 	}
 
 	try {
-		const s3List = await s3.listObjectsV2(params).promise()
+		const s3List = await s3('listObjectsV2', params)
 		const s3Keys = s3List.Contents.reduce((acc, key) => {
 			if (key.Key.match('.jpg|.png|.pdf|.csv|.gif|.txt')) {
 				acc.push(key.Key)
@@ -18,24 +17,10 @@ module.exports.getBucketLinks = async () => {
 			return acc
 		}, [])
 
-		const getSignedUrl = async Key => {
-			return await new Promise((resolve, reject) => {
-				const paramsSignedUrl = {
-					Bucket: process.env.S3_BUCKET_NAME,
-					Key,
-					Expires: 300, // 5 minute
-				}
-				s3.getSignedUrl('getObject', paramsSignedUrl, (err, url) => {
-					if (err) reject(err)
-					resolve(url)
-				})
-			})
-		}
-
 		async function processSignatures(items) {
 			const array = []
 			for (const item of items) {
-				const signedUrl = await getSignedUrl(item)
+				const signedUrl = await getSignedUrl(item, process.env.S3_BUCKET_NAME)
 				array.push(signedUrl)
 			}
 			return array

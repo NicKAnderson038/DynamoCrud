@@ -1,6 +1,6 @@
 'use strict'
 
-const { db } = require('../../helpers/dynamodb-client')
+const { db } = require('../../helpers/aws-client')
 const { putTable } = require('../../helpers/schemaTable')
 const { error400, success200 } = require('../../helpers/response')
 

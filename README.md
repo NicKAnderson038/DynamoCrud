@@ -18,7 +18,7 @@
 1. Replace text `yarn` with `npm` in package.json scripts.
 2. Install serverless globally: `npm install -g serverless`
 3. Run: `npm install`
-4. Run: `npm run build` to deploy lambda micro services.
+4. Run: `npm run sls:deploy` to deploy lambda micro services.
 
 #### YARN
 
@@ -29,7 +29,7 @@
    </ul>
 2. Install serverless globally: `yarn add global serverless`
 3. Run: `yarn`
-4. Run: `yarn build` to deploy lambda micro services.
+4. Run: `yarn sls:deploy` to deploy lambda micro services.
 
 </ul>
 
@@ -59,11 +59,11 @@ Building process will generate api-gateway endpoints in the console. Using postm
 
 ### Running serverless locally (npm or yarn)
 
-`npm run sls-offline`
+`npm run sls:offline`
 
 ##### or
 
-`yarn sls-offline`
+`yarn sls:offline`
 
 <br>
 
@@ -71,11 +71,13 @@ Building process will generate api-gateway endpoints in the console. Using postm
 
 ### Removing apis (npm or yarn)
 
-`npm run remove`
+Add `sls:remove` to package.json file. (Located in scripts.txt) then run the scripts command.
+
+`npm run sls:remove`
 
 ##### or
 
-`yarn remove`
+`yarn sls:remove`
 
 <br>
 <br>

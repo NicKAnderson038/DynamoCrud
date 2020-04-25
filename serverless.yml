@@ -19,8 +19,4 @@ functions: ${file(./serverless-dynamic.js):functions}
 
 resources:
   Resources: ${file(./serverless-dynamic.js):resources}
-  # Print out the name of the bucket that is created. Buckets are global, name is randomly generated.
-  Outputs:
-    AttachmentsBucketName:
-      Value:
-        Ref: AttachmentsBucket
+  Outputs: ${file(./serverless-yml/outputs.yml)}

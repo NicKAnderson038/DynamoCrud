@@ -1,0 +1,8 @@
+# Print newely created bucket name. Buckets are global, name is randomly generated.
+AttachmentsBucketName:
+  Value:
+    Ref: AttachmentsBucket
+UserInfoDbARN:
+  Description: 'User Info Db DynamoDB-ARN'
+  Value:
+    'Fn::GetAtt': [userInfoDb, Arn]

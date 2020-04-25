@@ -1,4 +1,4 @@
-const { putTable, getTable, deleteTable } = require('./schemaTable')
+const { putTable, getTable, deleteTable } = require('./schemaModal')
 
 const emptyStringCheck = data =>
 	!!Object.values(data)

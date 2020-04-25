@@ -4,13 +4,13 @@
  * Unlike the `userInfo` microservices, this service supports multiple methods.
  * Post, Put and Delete
  * PERSPECTIVE: this makes services overly complicated. Microservices are a much more flexable and maintainable pattern.
- * POSITIVES: the schemaTable.js file is an improvement. Mircoservices can benefit from those.
+ * POSITIVES: the schemaModal.js file is an improvement. Mircoservices can benefit from those.
  */
 
 const Joi = require('@hapi/joi')
-const { db } = require('../../helpers/aws-client')
+const { db } = require('../../helpers/dynamo-client')
 const { validate, isObjEmpty } = require('../../helpers/request-validation')
-const { updateTable } = require('../../helpers/schemaTable')
+const { updateTable } = require('../../helpers/schemaModal')
 const { error400, error422, success200 } = require('../../helpers/response')
 
 const postSchema = Joi.object({

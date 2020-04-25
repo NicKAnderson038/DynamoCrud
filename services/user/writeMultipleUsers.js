@@ -1,7 +1,7 @@
 'use strict'
 
-const { db } = require('../../helpers/aws-client')
-const { putTable } = require('../../helpers/schemaTable')
+const { db } = require('../../helpers/dynamo-client')
+const { putTable } = require('../../helpers/schemaModal')
 const { error400, success200 } = require('../../helpers/response')
 
 module.exports.writeMultipleUsers = async event => {

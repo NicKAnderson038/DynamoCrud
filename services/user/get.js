@@ -1,8 +1,8 @@
 'use strict'
 
 const Joi = require('@hapi/joi')
-const { db } = require('../../helpers/aws-client')
-const { getTable } = require('../../helpers/schemaTable')
+const { db } = require('../../helpers/dynamo-client')
+const { getTable } = require('../../helpers/schemaModal')
 const { error400, error422, success200 } = require('../../helpers/response')
 
 const schema = Joi.object({

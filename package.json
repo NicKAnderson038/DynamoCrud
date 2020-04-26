@@ -8,7 +8,7 @@
 	"scripts": {
 		"prettier:format": "echo \"🚦 START 👉 Prettier❗\" && prettier --write services/** && echo \"🏁 END 👉 Prettier❗\"",
 		"sls:offline": "sls offline $npm_package_config_dev",
-		"sls:deploy": "sls deploy $npm_package_config_dev"
+		"sls:deploy": "bash ci-deploy.sh"
 	},
 	"config": {
 		"dev": "--stage dev --region us-east-1 --verbose --aws-profile default"

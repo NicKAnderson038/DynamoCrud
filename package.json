@@ -7,7 +7,7 @@
 	"license": "MIT",
 	"scripts": {
 		"prettier:format": "echo \"🚦 START 👉 Prettier❗\" && prettier --write services/** && echo \"🏁 END 👉 Prettier❗\"",
-		"sls:offline": "sls offline $npm_package_config_dev",
+		"sls:offline": "npx sls offline $npm_package_config_dev",
 		"sls:deploy": "bash ci-deploy.sh"
 	},
 	"config": {

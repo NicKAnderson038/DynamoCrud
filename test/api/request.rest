@@ -1,6 +1,10 @@
 GET http://localhost:3000/dev/test
 
 ###
+# Must register subdomain in machine hosts file for testing locally
+GET http://sub.localhost:3000/dev/test
+
+###
 
 POST http://localhost:3000/dev/file-upload
 

@@ -95,6 +95,14 @@ Building process will generate api-gateway endpoints in the console. Using postm
 bash ci-decomission
 ```
 
+#
+
+### Creating a serverless application
+
+```bash
+npx sls create --template aws-nodejs --name MY_APP_NAME --path MY_APP_NAME
+```
+
 <br>
 <br>
 

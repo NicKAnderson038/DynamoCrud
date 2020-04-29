@@ -2,6 +2,10 @@
 
 const randomBytes = require('crypto').randomBytes
 
+function getDomainName(hostName) {
+	return hostName.split('.')[0].replace('https://', '')
+}
+
 module.exports.test = async event => {
 	return {
 		statusCode: 200,
@@ -9,6 +13,7 @@ module.exports.test = async event => {
 			{
 				message: 'successfully!',
 				// input: event,
+				host: getDomainName(event.headers.Host),
 				db: process.env.USER_INFO_DB,
 				uuid: randomBytes(16).toString('hex'),
 			},

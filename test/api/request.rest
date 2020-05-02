@@ -1,16 +1,26 @@
-GET http://localhost:3000/dev/test
+# file variables
+@hostname = localhost
+@port=3000
+@host = {{hostname}}:{{port}}
+
+# baseUrl is set in settings.json
+GET https://{{baseUrl}}/todos/1
+
+###
+
+GET http://{{host}}/dev/test
 
 ###
 # Must register subdomain in machine hosts file for testing locally
-GET http://sub.localhost:3000/dev/test
+GET http://sub.localhost:{{port}}/dev/test
 
 ###
 
-POST http://localhost:3000/dev/file-upload
+POST http://localhost:{{port}}/dev/file-upload
 
 ###
 
-GET http://localhost:3000/dev/get-signed-links
+GET http://localhost:{{port}}/dev/get-signed-links
 
 ###
 

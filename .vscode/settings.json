@@ -1,5 +1,10 @@
 {
 	"files.autoSave": "onFocusChange",
 	"editor.formatOnSave": true,
-	"editor.formatOnPaste": true
+	"editor.formatOnPaste": true,
+	"rest-client.environmentVariables": {
+		"local": {
+			"baseUrl": "jsonplaceholder.typicode.com"
+		}
+	}
 }
